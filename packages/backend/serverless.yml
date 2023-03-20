@@ -1,0 +1,19 @@
+service: my-nest-app
+provider:
+  name: aws
+  runtime: nodejs14.x
+  memorySize: 512
+  region: us-east-1
+  environment:
+    NODE_ENV: production
+functions:
+  my-nest-app:
+    handler: handler.function
+    events:
+      - http:
+          path: /
+          method: GET
+    package:
+      individually: true
+      include:
+        - '../shared-libraries/**'
