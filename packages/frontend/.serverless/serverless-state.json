@@ -178,9 +178,9 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/my-next-app/dev/1679327522614-2023-03-20T15:52:02.614Z/my-next-app.zip"
+                "S3Key": "serverless/my-next-app/dev/1679439661495-2023-03-21T23:01:01.495Z/my-next-app.zip"
               },
-              "Handler": "server.handler",
+              "Handler": "handler.hello",
               "Runtime": "nodejs14.x",
               "FunctionName": "my-next-app-dev-my-next-app",
               "MemorySize": 512,
@@ -201,14 +201,14 @@
               "MyDashnextDashappLogGroup"
             ]
           },
-          "MyDashnextDashappLambdaVersionniEoKiRxAXgudAM9NZQASxPyQEuoJNwh3ufqJrm3Q": {
+          "MyDashnextDashappLambdaVersiontZEmQEv9vQiszHs47yPEbQZBmqGO3ooFhQ8Unrk": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "MyDashnextDashappLambdaFunction"
               },
-              "CodeSha256": "fqj1+ME0EMmLhRq96B6puS2J8p0au+rFFBrUh4rXHAs="
+              "CodeSha256": "2CQ2UWveNJ2ZQTK+nqs6TO2BaVT/TgJEMASNIZ1Ew64="
             }
           },
           "ApiGatewayRestApi": {
@@ -272,7 +272,7 @@
               "MyDashnextDashappLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1679327520704": {
+          "ApiGatewayDeployment1679439659632": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -334,7 +334,7 @@
           "MyDashnextDashappLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "MyDashnextDashappLambdaVersionniEoKiRxAXgudAM9NZQASxPyQEuoJNwh3ufqJrm3Q"
+              "Ref": "MyDashnextDashappLambdaVersiontZEmQEv9vQiszHs47yPEbQZBmqGO3ooFhQ8Unrk"
             },
             "Export": {
               "Name": "sls-my-next-app-dev-MyDashnextDashappLambdaFunctionQualifiedArn"
@@ -455,7 +455,7 @@
     "pluginsData": {},
     "functions": {
       "my-next-app": {
-        "handler": "server.handler",
+        "handler": "handler.hello",
         "events": [
           {
             "http": {
@@ -477,7 +477,7 @@
         "timeout": 6,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "MyDashnextDashappLambdaVersionniEoKiRxAXgudAM9NZQASxPyQEuoJNwh3ufqJrm3Q"
+        "versionLogicalId": "MyDashnextDashappLambdaVersiontZEmQEv9vQiszHs47yPEbQZBmqGO3ooFhQ8Unrk"
       }
     },
     "configValidationMode": "warn",
@@ -495,7 +495,7 @@
     "isDashboardMonitoringPreconfigured": false
   },
   "package": {
-    "artifactDirectoryName": "serverless/my-next-app/dev/1679327522614-2023-03-20T15:52:02.614Z",
+    "artifactDirectoryName": "serverless/my-next-app/dev/1679439661495-2023-03-21T23:01:01.495Z",
     "artifact": ""
   }
 }

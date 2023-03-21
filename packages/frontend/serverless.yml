@@ -8,7 +8,7 @@ provider:
     NODE_ENV: production
 functions:
   my-next-app:
-    handler: server.handler
+    handler: handler.hello
     events:
       - http:
           path: /
