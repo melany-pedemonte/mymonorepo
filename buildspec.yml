@@ -1,0 +1,17 @@
+phases:
+  preBuild:
+    commands:
+      - npm install -g nx
+  build:
+    commands:
+      - nx build frontend --prod
+  postBuild:
+    commands:
+      - ls -alh
+artifacts:
+  files:
+    - '**/*'
+  baseDirectory: ./dist/packages/frontend
+cache:
+  paths:
+    - node_modules/**/*
