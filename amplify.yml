@@ -4,10 +4,13 @@ applications:
     phases:
       preBuild:
         commands:
+          - cd ../../
           - npm install
       build:
         commands:
           - npm run build:frontend
+          - cd packages/frontend
+          - npm install
     artifacts:
       baseDirectory: ../../dist/packages/frontend/.next
       files:
