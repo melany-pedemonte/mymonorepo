@@ -8,10 +8,17 @@ frontend:
       commands:
         - npm run build:frontend
   artifacts:
-    # IMPORTANT - Please verify your build output directory
     baseDirectory: dist/packages/frontend
     files:
       - '**/*'
   cache:
     paths:
       - node_modules/**/*
+monorepo:
+  main:
+    app:
+      artifacts: dist/packages/frontend/**
+      buildCommand: npm run build:frontend
+      name: frontend
+      output: dist/packages/frontend
+
