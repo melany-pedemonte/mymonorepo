@@ -1,3 +1,5 @@
+//@ts-check
+
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { withNx } = require('@nrwl/next/plugins/with-nx');
 
@@ -10,9 +12,6 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
-  // Add the following options to set the basePath and assetPrefix
-  basePath: '/packages/frontend',
-  assetPrefix: 'https://main.d1nedej6uewca3.amplifyapp.com',
 };
 
 module.exports = withNx(nextConfig);
