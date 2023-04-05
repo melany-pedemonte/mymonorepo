@@ -1,21 +1,31 @@
 version: 1
 applications:
- - frontend:
-    phases:
-      preBuild:
-        commands:
-          - cd ../../
-          - npm install
-      build:
-        commands:
-          - npm run build:frontend
-          - cd packages/frontend
-          - npm install
-    artifacts:
-      baseDirectory: ../../dist/packages/frontend/.next
-      files:
-        - '**/*'
-    cache:
-      paths:
-        - node_modules/**/*
-   appRoot: packages/frontend
+  - appRoot: packages/frontend
+    backend:
+      phases:
+        build:
+          commands:
+            - amplifyPush --simple
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            # This step will build app with Nx framework
+            - cd ../../
+            - npm install
+        build:
+          commands:
+            - npm run build:frontend
+            - cd packages/frontend
+            # create symbolic link from root to app folder
+            - ln -s ../../dist/packages/frontend/.next .next
+            - ln -s ../../node_modules node_modules
+            # enable SSR build flag to transpile libs/ui
+            - export AMPLIFY_SSR_BUILD=true
+      artifacts:
+        baseDirectory: ../../dist/packages/frontend/.next
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
