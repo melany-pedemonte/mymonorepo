@@ -11,7 +11,7 @@ const nextConfig = {
     svgr: false,
   },
   // Add the following options to set the basePath and assetPrefix
-  basePath: 'packages/frontend',
+  basePath: '/packages/frontend',
   assetPrefix: 'https://main.d1nedej6uewca3.amplifyapp.com',
 };
 
