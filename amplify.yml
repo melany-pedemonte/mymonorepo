@@ -1,24 +1,17 @@
 version: 1
-frontend:
-  phases:
-    preBuild:
-      commands:
-        - npm install
-    build:
-      commands:
-        - npm run build:frontend
-  artifacts:
-    baseDirectory: dist/packages/frontend
-    files:
-      - '**/*'
-  cache:
-    paths:
-      - node_modules/**/*
-monorepo:
-  main:
-    app:
-      artifacts: dist/packages/frontend/**
-      buildCommand: npm run build:frontend
-      name: frontend
-      output: dist/packages/frontend
-
+applications:
+ - frontend:
+    phases:
+      preBuild:
+        commands:
+          - npm install
+      build:
+        commands:
+          - npm run build:frontend
+    artifacts:
+      baseDirectory: dist/packages/frontend
+      files:
+        - '**/*'
+    cache:
+      paths:
+        - node_modules/**/*
