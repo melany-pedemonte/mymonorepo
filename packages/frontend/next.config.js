@@ -1,50 +1,18 @@
-const withNx = require('@nrwl/next/plugins/with-nx');
-const path = require('path');
-const isSSRBuild = process.env.AMPLIFY_SSR_BUILD === 'true';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { withNx } = require('@nrwl/next/plugins/with-nx');
 
 /**
  * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
  **/
 const nextConfig = {
   nx: {
-    // Set this to true if you would like to to use SVGR
+    // Set this to true if you would like to use SVGR
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
-  webpack (config, { defaultLoaders }) {
-    if (isSSRBuild) {
-      // XXX: This is a workaround for a bug in Amplify SSR deployment
-      config.module.rules.push({
-        test: /\.([jt])sx?$/,
-        include: [path.join(__dirname, '../../libs')],
-        exclude: /node_modules/,
-        use: [defaultLoaders.babel],
-      });
-    }
-
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: [
-        {
-          loader: '@svgr/webpack',
-          options: {
-            svgoConfig: {
-              plugins: [
-                {
-                  name: 'preset-default',
-                  params: {
-                    overrides: { removeViewBox: false },
-                  },
-                },
-              ],
-            },
-          },
-        },
-      ],
-    });
-
-    return config;
-  },
+  // Add the following options to set the basePath and assetPrefix
+  basePath: 'packages/frontend',
+  assetPrefix: 'https://main.d1nedej6uewca3.amplifyapp.com',
 };
 
 module.exports = withNx(nextConfig);
