@@ -5,7 +5,7 @@
   "scripts": {
     "start:backend": "nx serve backend",
     "start:frontend": "nx serve frontend",
-    "build:frontend": "nx build frontend",
+    "build:frontend": "nx run frontend:build:production",
     "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\""
   },
   "private": true,
@@ -59,6 +59,7 @@
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
+    "aws-amplify": "^5.0.24",
     "aws-lambda": "^1.0.7",
     "aws-serverless-express": "^3.4.0",
     "axios": "^1.0.0",
